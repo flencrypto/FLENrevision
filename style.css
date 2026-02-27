@@ -10,14 +10,44 @@
 }
 
 body {
-  background: linear-gradient(35deg, rgb(18, 22, 26), rgb(45, 53, 64));
+  background: linear-gradient(120deg, rgb(10, 14, 22), rgb(26, 35, 52), rgb(18, 24, 36));
   height: 100%;
+  min-height: 100vh;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 180% 180%;
   background-attachment: fixed;
   background-position: center;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  animation: backgroundShift 16s ease infinite;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  width: 32vw;
+  height: 32vw;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.32;
+  animation: floatOrb 14s ease-in-out infinite;
+}
+
+body::before {
+  top: -8vw;
+  left: -8vw;
+  background: rgba(55, 177, 255, 0.6);
+}
+
+body::after {
+  right: -10vw;
+  bottom: -10vw;
+  background: rgba(0, 231, 143, 0.5);
+  animation-delay: -7s;
 }
 
 
@@ -27,7 +57,10 @@ body::-webkit-scrollbar {
 
 .main_header {
   height: 130px;
-  background-color: rgb(29, 33, 36);
+  background-color: rgba(20, 28, 38, 0.58);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding-right: 120px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 
@@ -93,13 +126,16 @@ body::-webkit-scrollbar {
   flex-basis: 100%;
   filter: none;
   padding-inline: 10px;
-  transition: all 600ms cubic-bezier(.55, .36, 0, 1);
+  transition: transform 300ms ease, filter 300ms ease, box-shadow 300ms ease, background-color 300ms ease;
+  backdrop-filter: blur(3px);
 }
 
 .home_btn:hover {
   margin: 10px;
+  transform: translateY(-4px);
   filter: brightness(90%);
   background-color: var(--rasper-green);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
 }
 
 .home_btn_row {
@@ -371,6 +407,31 @@ body::-webkit-scrollbar {
   clear: both;
 }
 
+@keyframes backgroundShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatOrb {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, 20px, 0);
+  }
+}
+
 @keyframes slideIn {
   0% {
     width: 0%;
@@ -397,6 +458,18 @@ body::-webkit-scrollbar {
 
 .link-offset-1:hover {
   text-underline-offset: 0.15rem !important;
+}
+
+.home-glass-panel {
+  flex-grow: 1;
+  margin: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  box-shadow: 0 25px 60px rgba(3, 8, 20, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 20px;
 }
 
 @media screen and (max-width: 576px) {

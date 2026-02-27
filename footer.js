@@ -3,7 +3,7 @@ const footer = `<footer class="row py-5 my-5 border-top">
             <a href="/"><img src="/assets/logo/wide_logo_dark.svg" height=75 class="mb-3"></a>
             <div>
               <p>Copyright © 2024</p>
-              <a class="text-white" href="https://github.com/RasperRevision/RasperRevision.github.io" target="_blank">
+              <a class="text-white" href="https://github.com/flencrypto/FLENrevision" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-github"
                   viewBox="0 0 16 16">
                   <path
