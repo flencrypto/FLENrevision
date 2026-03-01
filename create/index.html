@@ -8,7 +8,6 @@
   <title>Create - FLENrevision</title>
 
   <!-- BREADCRUMB LIST -->
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -35,168 +34,666 @@
   <!-- STYLES -->
   <link href="/style.css" rel="stylesheet">
   <style>
-    .form-control.empty {
-      border-color: red !important;
-      border-width: 2px;
+    .create-glass {
+      background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .create-glass h2, .create-glass h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      margin-bottom: 16px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .qa-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 14px;
+      transition: border-color 200ms ease;
+    }
+
+    .qa-card:hover {
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .qa-card .form-control,
+    .qa-card .form-control:focus {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      border-radius: 10px;
+    }
+
+    .qa-card .form-control::placeholder {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .qa-card .form-control:focus {
+      border-color: var(--rasper-green);
+      box-shadow: 0 0 0 3px rgba(0,231,143,0.18);
+    }
+
+    .qa-card .form-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 6px;
+    }
+
+    .qa-card .qa-number {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--rasper-green);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .btn-create-primary {
+      background: linear-gradient(35deg, rgb(0,115,255), rgb(103,167,244));
+      border: none;
+      color: white;
+      border-radius: 10px;
+      padding: 10px 22px;
+      font-weight: 600;
+      transition: filter 150ms ease, transform 120ms ease;
+    }
+
+    .btn-create-primary:hover {
+      filter: brightness(1.12);
+      transform: translateY(-1px);
+      color: white;
+    }
+
+    .btn-create-success {
+      background: linear-gradient(35deg, rgb(15,110,11), rgb(39,218,19));
+      border: none;
+      color: white;
+      border-radius: 10px;
+      padding: 10px 22px;
+      font-weight: 600;
+      transition: filter 150ms ease, transform 120ms ease;
+    }
+
+    .btn-create-success:hover {
+      filter: brightness(1.12);
+      transform: translateY(-1px);
+      color: white;
+    }
+
+    .btn-create-danger {
+      background: rgba(220,53,69,0.18);
+      border: 1px solid rgba(220,53,69,0.4);
+      color: rgba(255,100,100,0.9);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      transition: background 150ms ease;
+    }
+
+    .btn-create-danger:hover {
+      background: rgba(220,53,69,0.32);
+      color: white;
+    }
+
+    .btn-create-ai {
+      background: linear-gradient(35deg, rgb(97,6,79), rgb(121,41,241));
+      border: none;
+      color: white;
+      border-radius: 10px;
+      padding: 10px 22px;
+      font-weight: 600;
+      transition: filter 150ms ease, transform 120ms ease;
+    }
+
+    .btn-create-ai:hover {
+      filter: brightness(1.12);
+      transform: translateY(-1px);
+      color: white;
+    }
+
+    .btn-create-ai:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .api-key-input {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      border-radius: 10px;
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+
+    .api-key-input:focus {
+      border-color: var(--rasper-green);
+      box-shadow: 0 0 0 3px rgba(0,231,143,0.18);
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    .api-key-input::placeholder {
+      color: rgba(255,255,255,0.35);
+    }
+
+    .api-status {
+      font-size: 0.78rem;
+      margin-top: 8px;
+    }
+
+    .api-status.saved {
+      color: var(--rasper-green);
+    }
+
+    .api-status.error {
+      color: #ff6b6b;
+    }
+
+    .title-input {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 12px 18px;
+    }
+
+    .title-input:focus {
+      border-color: var(--rasper-green);
+      box-shadow: 0 0 0 3px rgba(0,231,143,0.18);
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    .title-input::placeholder {
+      color: rgba(255,255,255,0.35);
+    }
+
+    .title-input.invalid {
+      border-color: #ff6b6b !important;
+    }
+
+    .ai-topic-input {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      border-radius: 10px;
+    }
+
+    .ai-topic-input:focus {
+      border-color: rgba(121,41,241,0.7);
+      box-shadow: 0 0 0 3px rgba(121,41,241,0.2);
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    .ai-topic-input::placeholder {
+      color: rgba(255,255,255,0.35);
+    }
+
+    .ai-count-input {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      border-radius: 10px;
+      width: 80px;
+    }
+
+    .ai-count-input:focus {
+      border-color: rgba(121,41,241,0.7);
+      box-shadow: 0 0 0 3px rgba(121,41,241,0.2);
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    .ai-spinner {
+      display: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .ai-generating .ai-spinner { display: inline-block; }
+    .ai-generating .ai-btn-text { display: none; }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 24px 0;
+    }
+
+    .items-count-badge {
+      background: rgba(0,231,143,0.15);
+      border: 1px solid rgba(0,231,143,0.3);
+      color: var(--rasper-green);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      letter-spacing: 0.05em;
+    }
+
+    .create-page-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .create-page-subtitle {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+
+    .create-page-subtitle a {
+      color: var(--rasper-green);
+    }
+
+    .toggle-api-key {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      padding: 0 8px;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    .toggle-api-key:hover {
+      color: white;
+    }
+
+    .ai-error-msg {
+      font-size: 0.82rem;
+      color: #ff6b6b;
+      margin-top: 10px;
+      display: none;
     }
   </style>
-
 </head>
 
 <body>
   <div class="main_wrapper">
-    <main class="container mt-5 main_section">
-      <h1>Create</h1>
-      <p>Create a JSON file which can be uploaded to
-        <a href="/quiz"
-          class="link-offset-1 link-light link-underline-opacity-50 link-underline-opacity-100-hover">Quiz</a>
-        and <a href="/matchup"
-          class="link-offset-1 link-light link-underline-opacity-50 link-underline-opacity-100-hover">Matchup</a>. The
-        file can be shared with anyone you like and they will also be able to upload it.
+    <main class="container py-5 main_section" style="max-width: 780px;">
+
+      <div class="create-page-title">Create</div>
+      <p class="create-page-subtitle">
+        Build a quiz set and download it as JSON to use in
+        <a href="/quiz">Quiz</a> and <a href="/matchup">Matchup</a>,
+        or use AI to generate questions automatically.
       </p>
-      <div class="list-group create_main_content">
-        <div class="list-group-item" style="background-color: rgb(224, 224, 224);">
-          <div class="input-group my-1">
-            <input type="text" class="form-control" placeholder="Title" id="title" style="color: black !important;">
-          </div>
-        </div>
-        <div class="list-group-item bg-light">
-          <div class="input-group mb-2">
-            <span class="input-group-text">Term</span>
-            <input type="text" class="form-control">
-          </div>
-          <div class="input-group my-3">
-            <span class="input-group-text">Definition</span>
-            <textarea class="form-control"></textarea>
-          </div>
-          <button class="btn btn-danger delete-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill"
-              viewBox="0 0 16 16">
-              <path
-                d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
-            </svg> Delete
+
+      <!-- API Key Settings -->
+      <div class="create-glass">
+        <h2>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2 mb-1" viewBox="0 0 16 16">
+            <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.354.146H7.465A4.002 4.002 0 0 1 0 8m4-3a3 3 0 1 0 0 6 3 3 0 0 0 0-6"/>
+          </svg>
+          OpenAI API Key
+        </h2>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:14px;">
+          Your key is stored locally in your browser and is only sent directly to OpenAI's API servers when generating questions. It is never sent to our servers.
+        </p>
+        <div class="input-group">
+          <input type="password" id="apiKeyInput" class="form-control api-key-input" placeholder="sk-…">
+          <button class="toggle-api-key" id="toggleApiKey" title="Show/hide key">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" id="eyeIcon">
+              <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+              <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+            </svg>
           </button>
+          <button class="btn-create-primary ms-2" id="saveApiKey">Save Key</button>
         </div>
-        <div class="list-group-item bg-light">
-          <div class="input-group mb-2">
-            <span class="input-group-text">Term</span>
-            <input type="text" class="form-control">
+        <div class="api-status" id="apiStatus"></div>
+      </div>
+
+      <!-- AI Generate -->
+      <div class="create-glass">
+        <h2>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2 mb-1" viewBox="0 0 16 16">
+            <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+          </svg>
+          AI Generate
+        </h2>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:14px;">
+          Enter a topic and let AI generate quiz question/answer pairs for you. Requires an OpenAI API key saved above.
+        </p>
+        <div class="row g-3 align-items-end">
+          <div class="col">
+            <label class="form-label" style="color:rgba(255,255,255,0.55);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;">Topic</label>
+            <input type="text" id="aiTopic" class="form-control ai-topic-input" placeholder="e.g. GCSE Biology Cell Biology">
           </div>
-          <div class="input-group my-3">
-            <span class="input-group-text">Definition</span>
-            <textarea class="form-control"></textarea>
+          <div class="col-auto">
+            <label class="form-label" style="color:rgba(255,255,255,0.55);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;">Count</label>
+            <input type="number" id="aiCount" class="form-control ai-count-input" value="10" min="1" max="50">
           </div>
-          <button class="btn btn-danger delete-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill"
-              viewBox="0 0 16 16">
-              <path
-                d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
-            </svg> Delete
+          <div class="col-auto">
+            <button class="btn-create-ai" id="aiGenerateBtn">
+              <span class="ai-spinner" id="aiSpinner"></span>
+              <span class="ai-btn-text">Generate</span>
+            </button>
+          </div>
+        </div>
+        <div class="ai-error-msg" id="aiErrorMsg"></div>
+      </div>
+
+      <!-- Manual Creation -->
+      <div class="create-glass">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h2 class="mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2 mb-1" viewBox="0 0 16 16">
+              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+            </svg>
+            Questions
+          </h2>
+          <span class="items-count-badge" id="itemsCount">0 items</span>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label" style="color:rgba(255,255,255,0.55);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;">Set Title (no spaces)</label>
+          <input type="text" class="form-control title-input" placeholder="e.g. biology_cells" id="title">
+        </div>
+
+        <div id="qaList"></div>
+
+        <div class="d-flex gap-2 flex-wrap mt-3">
+          <button class="btn-create-primary" id="addItem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="me-1 mb-1" viewBox="0 0 16 16">
+              <path d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+            </svg>
+            Add Item
+          </button>
+          <button class="btn-create-success" id="downloadBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="me-1 mb-1" viewBox="0 0 16 16">
+              <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+              <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+            </svg>
+            Download JSON
           </button>
         </div>
 
-        <div class="list-group-item bg-light">
-          <div class="input-group mb-2">
-            <span class="input-group-text">Term</span>
-            <input type="text" class="form-control">
-          </div>
-          <div class="input-group my-3">
-            <span class="input-group-text">Definition</span>
-            <textarea class="form-control"></textarea>
-          </div>
-          <button class="btn btn-danger delete-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill"
-              viewBox="0 0 16 16">
-              <path
-                d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
-            </svg> Delete
-          </button>
-        </div>
-        <div class="list-group-item p-3" style="background-color: rgb(224, 224, 224);">
-          <button class="btn btn-success download">Download</button>
-          <button class="btn btn-primary add-item">Add Item</button>
-        </div>
+        <div class="ai-error-msg" id="downloadMsg" style="color:var(--rasper-green);"></div>
       </div>
+
     </main>
   </div>
 
-
   <script src="/sidebar.js"></script>
-  <script src="/footer.js"></script>
 
   <script>
-    const download = document.querySelector('.download');
-    const title = document.getElementById('title');
+    // ── API Key ──────────────────────────────────────────────────────────────
+    const apiKeyInput = document.getElementById('apiKeyInput');
+    const saveApiKeyBtn = document.getElementById('saveApiKey');
+    const apiStatus = document.getElementById('apiStatus');
+    const toggleApiKeyBtn = document.getElementById('toggleApiKey');
 
-    let itemIndex = 0;
-    let inputs = document.querySelectorAll('.form-control');
+    // Load saved key on page load
+    const savedKey = localStorage.getItem('openai_api_key');
+    if (savedKey) {
+      apiKeyInput.value = savedKey;
+      apiStatus.textContent = '✓ Key loaded from local storage';
+      apiStatus.className = 'api-status saved';
+    }
 
-    document.querySelector('.add-item').addEventListener('click', function () {
-      const listItem = document.createElement('div');
-      listItem.classList.add('list-group-item', 'bg-light');
-      listItem.innerHTML = `<div class="input-group mb-2"><span class="input-group-text">Term</span><input type="text" class="form-control"></div><div class="input-group my-3"><span class="input-group-text">Definition</span><textarea class="form-control"></textarea></div><button class="btn btn-danger delete-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16"><path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/></svg> Delete</button>`;
-      const listGroup = document.querySelector('.create_main_content');
-      listGroup.insertBefore(listItem, listGroup.lastElementChild);
-      document.querySelectorAll('.delete-item').forEach(btn => btn.disabled = deleteButtons.length <= 1);
-      inputs = document.querySelectorAll('.form-control');
-    });
-
-    document.addEventListener('click', event => {
-      if (event.target && event.target.classList.contains('delete-item')) {
-        event.target.closest('.list-group-item').remove();
-        const deleteButtons = document.querySelectorAll('.delete-item');
-        deleteButtons.forEach(button => button.disabled = deleteButtons.length <= 1);
+    toggleApiKeyBtn.addEventListener('click', () => {
+      if (apiKeyInput.type === 'password') {
+        apiKeyInput.type = 'text';
+      } else {
+        apiKeyInput.type = 'password';
       }
     });
 
-    title.addEventListener('input', () => download.textContent = "Download " + this.value + ".json");
-
-    download.addEventListener('click', () => {
-      if (title.value.trim() !== "" && !title.value.includes(" ")) {
-        title.classList.remove('empty');
-
-        const jsonData = generateJSONData();
-        const blob = new Blob([jsonData], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = title.value + ".json";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-        const complete = document.createElement('div');
-        const complete_content = "Your download should have started. If not, please <a href='/contact'>contact us</a> and we will do our best to fix the issue. Once you have your JSON file, you can upload it to play it with either <a href='/matchup'>Matchup</a> or <a href='/quiz'>Quiz</a>. This file can be shared with anyone, and they can also upload it to play.";
-        complete.innerHTML = complete_content;
-        complete.classList.add('p-3');
-        document.querySelector('.main_section').appendChild(complete);
+    saveApiKeyBtn.addEventListener('click', () => {
+      const key = apiKeyInput.value.trim();
+      if (!key) {
+        apiStatus.textContent = '✗ Please enter an API key.';
+        apiStatus.className = 'api-status error';
+        return;
       }
-      else title.classList.add('empty');
+      localStorage.setItem('openai_api_key', key);
+      apiStatus.textContent = '✓ Key saved to local storage.';
+      apiStatus.className = 'api-status saved';
     });
 
-    function generateJSONData() {
-      const jsonData = [];
+    // ── AI Generate ─────────────────────────────────────────────────────────
+    const aiGenerateBtn = document.getElementById('aiGenerateBtn');
+    const aiTopic = document.getElementById('aiTopic');
+    const aiCount = document.getElementById('aiCount');
+    const aiErrorMsg = document.getElementById('aiErrorMsg');
 
-      document.querySelectorAll('.list-group-item.bg-light').forEach(item => {
-        const termInput = item.querySelector('.input-group.mb-2 input');
-        const definitionInput = item.querySelector('.input-group.my-3 textarea');
+    aiGenerateBtn.addEventListener('click', async () => {
+      const key = localStorage.getItem('openai_api_key');
+      const topic = aiTopic.value.trim();
+      const count = parseInt(aiCount.value, 10);
 
-        if (termInput && definitionInput) {
-          const termValue = termInput.value.trim();
-          const definitionValue = definitionInput.value.trim();
+      aiErrorMsg.style.display = 'none';
 
-          if (termValue !== "" && definitionValue !== "") {
-            const newItem = {
-              "term": termValue,
-              "meaning": definitionValue
-            };
-            jsonData.push(newItem);
+      if (!key) {
+        aiErrorMsg.textContent = 'No API key found. Please enter and save your OpenAI API key above.';
+        aiErrorMsg.style.display = 'block';
+        return;
+      }
+      if (!topic) {
+        aiErrorMsg.textContent = 'Please enter a topic for AI generation.';
+        aiErrorMsg.style.display = 'block';
+        return;
+      }
+      if (isNaN(count) || count < 1 || count > 50) {
+        aiErrorMsg.textContent = 'Count must be between 1 and 50.';
+        aiErrorMsg.style.display = 'block';
+        return;
+      }
+
+      aiGenerateBtn.classList.add('ai-generating');
+      aiGenerateBtn.disabled = true;
+
+      const prompt = `Generate exactly ${count} quiz question and answer pairs about "${topic}" suitable for GCSE/secondary school level.
+Return ONLY a valid JSON array with no extra text or markdown, where each object has "term" (the question or key term) and "meaning" (the answer or definition).
+Example format: [{"term": "What is...?", "meaning": "It is..."}, ...]`;
+
+      try {
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${key}`
+          },
+          body: JSON.stringify({
+            model: 'gpt-4o-mini',
+            messages: [
+              { role: 'system', content: 'You are a helpful educational assistant. Always respond with valid JSON only, no markdown or extra text.' },
+              { role: 'user', content: prompt }
+            ],
+            temperature: 0.7
+          })
+        });
+
+        if (!response.ok) {
+          const err = await response.json().catch(() => ({}));
+          throw new Error(err.error?.message || `API error: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const content = data.choices?.[0]?.message?.content?.trim();
+
+        let parsed;
+        try {
+          parsed = JSON.parse(content);
+        } catch {
+          // Try extracting a JSON array from response if it contains extra text
+          const match = content.match(/(\[[\s\S]*\])/);
+          if (match) {
+            try {
+              parsed = JSON.parse(match[1]);
+            } catch {
+              throw new Error('AI returned an unexpected format. Please try again.');
+            }
+          } else {
+            throw new Error('AI returned an unexpected format. Please try again.');
           }
         }
+
+        if (!Array.isArray(parsed) || parsed.length === 0) {
+          throw new Error('AI returned an empty or invalid array. Please try again.');
+        }
+
+        parsed.forEach(item => {
+          if (item.term && item.meaning) addQACard(item.term, item.meaning);
+        });
+
+        updateItemsCount();
+
+      } catch (err) {
+        aiErrorMsg.textContent = `Error: ${err.message}`;
+        aiErrorMsg.style.display = 'block';
+      } finally {
+        aiGenerateBtn.classList.remove('ai-generating');
+        aiGenerateBtn.disabled = false;
+      }
+    });
+
+    // ── Q&A Cards ────────────────────────────────────────────────────────────
+    const qaList = document.getElementById('qaList');
+
+    function addQACard(term = '', meaning = '') {
+      const card = document.createElement('div');
+      card.className = 'qa-card';
+
+      const index = qaList.children.length + 1;
+      card.innerHTML = `
+        <div class="qa-number">Question ${index}</div>
+        <div class="mb-3">
+          <label class="form-label">Term / Question</label>
+          <input type="text" class="form-control term-input" placeholder="Enter term or question" value="${escapeHtml(term)}">
+        </div>
+        <div class="mb-2">
+          <label class="form-label">Definition / Answer</label>
+          <textarea class="form-control meaning-input" rows="2" placeholder="Enter definition or answer">${escapeHtml(meaning)}</textarea>
+        </div>
+        <div class="d-flex justify-content-end mt-2">
+          <button class="btn-create-danger delete-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="me-1" viewBox="0 0 16 16">
+              <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+            </svg>
+            Remove
+          </button>
+        </div>
+      `;
+
+      card.querySelector('.delete-item').addEventListener('click', () => {
+        card.remove();
+        renumberCards();
+        updateItemsCount();
       });
 
-      return JSON.stringify(jsonData, null, 2);
+      qaList.appendChild(card);
+      updateItemsCount();
+    }
+
+    function renumberCards() {
+      Array.from(qaList.querySelectorAll('.qa-number')).forEach((el, i) => {
+        el.textContent = `Question ${i + 1}`;
+      });
+    }
+
+    function updateItemsCount() {
+      const n = qaList.children.length;
+      document.getElementById('itemsCount').textContent = `${n} item${n !== 1 ? 's' : ''}`;
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    document.getElementById('addItem').addEventListener('click', () => addQACard());
+
+    // Start with 3 blank cards
+    addQACard();
+    addQACard();
+    addQACard();
+
+    // ── Download ─────────────────────────────────────────────────────────────
+    const titleInput = document.getElementById('title');
+    const downloadMsg = document.getElementById('downloadMsg');
+
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      downloadMsg.style.display = 'none';
+      const titleVal = titleInput.value.trim();
+
+      if (!titleVal) {
+        titleInput.classList.add('invalid');
+        titleInput.focus();
+        return;
+      }
+      if (titleVal.includes(' ')) {
+        titleInput.classList.add('invalid');
+        downloadMsg.textContent = 'Title must not contain spaces. Use underscores instead (e.g. biology_cells).';
+        downloadMsg.style.color = '#ff6b6b';
+        downloadMsg.style.display = 'block';
+        return;
+      }
+
+      titleInput.classList.remove('invalid');
+
+      const jsonData = generateJSONData();
+      if (jsonData.length === 0) {
+        downloadMsg.textContent = 'No items to download. Add at least one term and definition.';
+        downloadMsg.style.color = '#ff6b6b';
+        downloadMsg.style.display = 'block';
+        return;
+      }
+
+      const blob = new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${titleVal}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      downloadMsg.textContent = `✓ ${titleVal}.json downloaded. Upload it in Quiz or Matchup to play!`;
+      downloadMsg.style.color = 'var(--rasper-green)';
+      downloadMsg.style.display = 'block';
+    });
+
+    titleInput.addEventListener('input', () => titleInput.classList.remove('invalid'));
+
+    function generateJSONData() {
+      const items = [];
+      qaList.querySelectorAll('.qa-card').forEach(card => {
+        const term = card.querySelector('.term-input').value.trim();
+        const meaning = card.querySelector('.meaning-input').value.trim();
+        if (term && meaning) items.push({ term, meaning });
+      });
+      return items;
     }
   </script>
 
