@@ -533,5 +533,70 @@
         "games": 12
       }
     ]
+  },
+  {
+    "index": 11,
+    "displayName": "English Language",
+    "bg": "purple",
+    "topicParent": ".english-lang-topics",
+    "topics": [
+      {
+        "index": 1,
+        "displayName": "Language Analysis",
+        "bg": "primary",
+        "jsonFile": "english-lang-language-analysis",
+        "games": 12
+      },
+      {
+        "index": 2,
+        "displayName": "Writing Techniques",
+        "bg": "info",
+        "jsonFile": "english-lang-writing-techniques",
+        "games": 12
+      },
+      {
+        "index": 3,
+        "displayName": "Viewpoint Writing",
+        "bg": "warning",
+        "jsonFile": "english-lang-viewpoint-writing",
+        "games": 12
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "displayName": "Geography",
+    "bg": "lime",
+    "topicParent": ".geography-topics",
+    "topics": [
+      {
+        "index": 1,
+        "displayName": "Natural Hazards",
+        "bg": "danger",
+        "jsonFile": "geography-natural-hazards",
+        "games": 12
+      },
+      {
+        "index": 2,
+        "displayName": "Ecosystems",
+        "bg": "success",
+        "jsonFile": "geography-ecosystems",
+        "games": 12
+      },
+      {
+        "index": 3,
+        "displayName": "Urban Issues",
+        "bg": "orange",
+        "jsonFile": "geography-urban-issues",
+        "games": 12
+      },
+      {
+        "index": 4,
+        "displayName": "Economic World",
+        "bg": "turquoise",
+        "jsonFile": "geography-economic-world",
+        "games": 12
+      }
+    ]
   }
 ]

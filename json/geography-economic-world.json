@@ -1,0 +1,82 @@
+[
+  {
+    "term": "Development",
+    "meaning": "The progress of a country in terms of economic growth, quality of life and access to resources."
+  },
+  {
+    "term": "Gross Domestic Product (GDP)",
+    "meaning": "The total value of goods and services produced by a country in a year."
+  },
+  {
+    "term": "Human Development Index (HDI)",
+    "meaning": "A measure of development that combines income, education and life expectancy."
+  },
+  {
+    "term": "LIC (Low Income Country)",
+    "meaning": "A country with a low GDP per capita and a limited standard of living."
+  },
+  {
+    "term": "HIC (High Income Country)",
+    "meaning": "A country with a high GDP per capita and a high standard of living."
+  },
+  {
+    "term": "NEE (Newly Emerging Economy)",
+    "meaning": "A country that is rapidly industrialising and experiencing economic growth, e.g. China or Brazil."
+  },
+  {
+    "term": "Development gap",
+    "meaning": "The difference in levels of development between the world's richest and poorest countries."
+  },
+  {
+    "term": "Transnational corporation (TNC)",
+    "meaning": "A company that operates in more than one country and has a global reach."
+  },
+  {
+    "term": "Foreign direct investment (FDI)",
+    "meaning": "Investment made by a foreign company or government into the economy of another country."
+  },
+  {
+    "term": "Globalisation",
+    "meaning": "The process by which the world is becoming increasingly interconnected through trade, culture and technology."
+  },
+  {
+    "term": "Fair trade",
+    "meaning": "A trading partnership that aims to achieve greater equity in international trade and improve conditions for producers in developing countries."
+  },
+  {
+    "term": "Aid",
+    "meaning": "Money, food, skills or technology given by one country to another to help its development."
+  },
+  {
+    "term": "Bilateral aid",
+    "meaning": "Aid given directly from one country to another."
+  },
+  {
+    "term": "Multilateral aid",
+    "meaning": "Aid given by several countries through an international organisation such as the UN or World Bank."
+  },
+  {
+    "term": "Intermediate technology",
+    "meaning": "Technology that is suited to the needs and skills of people in developing countries, using local materials."
+  },
+  {
+    "term": "Birth rate",
+    "meaning": "The number of live births per 1000 people per year."
+  },
+  {
+    "term": "Death rate",
+    "meaning": "The number of deaths per 1000 people per year."
+  },
+  {
+    "term": "Infant mortality rate",
+    "meaning": "The number of babies who die before their first birthday, per 1000 live births."
+  },
+  {
+    "term": "Life expectancy",
+    "meaning": "The average number of years a person is expected to live."
+  },
+  {
+    "term": "Literacy rate",
+    "meaning": "The percentage of adults who can read and write in a population."
+  }
+]

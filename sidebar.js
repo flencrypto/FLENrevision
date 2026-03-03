@@ -58,3 +58,67 @@ icon.addEventListener('click', () => {
   if (sidebar.classList.contains('active')) sidebar.setAttribute('aria-hidden', 'true');
   else sidebar.setAttribute('aria-hidden', 'false');
 });
+
+/* ADHD session timer & break reminder
+ * Shows a visible session clock in the corner and prompts the student
+ * to take a short break after BREAK_AFTER_MINS minutes of continuous study.
+ */
+(function () {
+  const BREAK_AFTER_MINS = 20;
+  const SNOOZE_MINS = 5;
+
+  var sessionSeconds = 0;
+  var breakSnoozed = false;
+  var reminderShown = false;
+
+  // Session timer badge
+  var badge = document.createElement('div');
+  badge.className = 'session-timer-badge';
+  badge.setAttribute('aria-label', 'Session timer');
+  document.body.appendChild(badge);
+
+  // Break reminder overlay
+  var overlay = document.createElement('div');
+  overlay.className = 'break-reminder-overlay invis';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-labelledby', 'break-title');
+  overlay.innerHTML = `
+    <div class="break-reminder-card">
+      <div style="font-size:3rem;margin-bottom:0.4rem;">🧠</div>
+      <h2 id="break-title">Time for a break!</h2>
+      <p>You've been studying for <strong>${BREAK_AFTER_MINS} minutes</strong>.<br>
+         A short break helps your brain stay sharp.</p>
+      <button class="break-btn break-btn-primary" id="break-ok">Take a 5-min break ✅</button>
+      <button class="break-btn break-btn-secondary" id="break-snooze">Remind me in ${SNOOZE_MINS} min</button>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  document.getElementById('break-ok').addEventListener('click', function () {
+    overlay.classList.add('invis');
+    sessionSeconds = 0;
+    reminderShown = false;
+    breakSnoozed = false;
+  });
+
+  document.getElementById('break-snooze').addEventListener('click', function () {
+    overlay.classList.add('invis');
+    breakSnoozed = true;
+    reminderShown = false;
+    sessionSeconds = (BREAK_AFTER_MINS - SNOOZE_MINS) * 60;
+  });
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  setInterval(function () {
+    sessionSeconds++;
+    var m = Math.floor(sessionSeconds / 60);
+    var s = sessionSeconds % 60;
+    badge.textContent = '⏱ ' + pad(m) + ':' + pad(s);
+
+    if (!reminderShown && sessionSeconds >= BREAK_AFTER_MINS * 60) {
+      overlay.classList.remove('invis');
+      reminderShown = true;
+    }
+  }, 1000);
+}());

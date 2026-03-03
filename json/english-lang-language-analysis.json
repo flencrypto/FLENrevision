@@ -1,0 +1,82 @@
+[
+  {
+    "term": "Simile",
+    "meaning": "A comparison of two things using 'like' or 'as' to create a vivid image."
+  },
+  {
+    "term": "Metaphor",
+    "meaning": "A direct comparison stating one thing is another, not using 'like' or 'as'."
+  },
+  {
+    "term": "Personification",
+    "meaning": "Giving human qualities or characteristics to a non-human thing."
+  },
+  {
+    "term": "Alliteration",
+    "meaning": "The repetition of the same consonant sound at the start of nearby words."
+  },
+  {
+    "term": "Sibilance",
+    "meaning": "Repetition of 's' or soft 'c' sounds to create a hissing effect."
+  },
+  {
+    "term": "Onomatopoeia",
+    "meaning": "A word that phonetically imitates or resembles the sound it describes."
+  },
+  {
+    "term": "Hyperbole",
+    "meaning": "Deliberate exaggeration used for emphasis or effect."
+  },
+  {
+    "term": "Imagery",
+    "meaning": "Descriptive language that appeals to the senses to create a picture in the reader's mind."
+  },
+  {
+    "term": "Tone",
+    "meaning": "The overall attitude or feeling conveyed by the writer towards the subject."
+  },
+  {
+    "term": "Mood",
+    "meaning": "The atmosphere or emotional feeling created for the reader."
+  },
+  {
+    "term": "Connotation",
+    "meaning": "The implied or associated meaning of a word beyond its literal definition."
+  },
+  {
+    "term": "Denotation",
+    "meaning": "The literal, dictionary definition of a word."
+  },
+  {
+    "term": "Diction",
+    "meaning": "The writer's choice of words and vocabulary."
+  },
+  {
+    "term": "Syntax",
+    "meaning": "The arrangement of words and phrases to create well-formed sentences."
+  },
+  {
+    "term": "Juxtaposition",
+    "meaning": "Placing two contrasting ideas, images or characters close together for effect."
+  },
+  {
+    "term": "Oxymoron",
+    "meaning": "A figure of speech that combines two contradictory terms, e.g. 'bittersweet'."
+  },
+  {
+    "term": "Semantic field",
+    "meaning": "A group of words that are all related to the same topic or concept."
+  },
+  {
+    "term": "Repetition",
+    "meaning": "The deliberate use of the same word or phrase more than once for emphasis."
+  },
+  {
+    "term": "Rhetorical question",
+    "meaning": "A question asked for effect, not expecting an answer, to engage the reader."
+  },
+  {
+    "term": "Direct address",
+    "meaning": "Speaking directly to the reader using 'you' to engage them personally."
+  }
+]
