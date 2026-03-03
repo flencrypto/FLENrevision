@@ -1,0 +1,82 @@
+[
+  {
+    "term": "Natural hazard",
+    "meaning": "A natural event that poses a risk to human life or property, such as an earthquake or flood."
+  },
+  {
+    "term": "Tectonic hazard",
+    "meaning": "A hazard caused by the movement of tectonic plates, such as earthquakes or volcanic eruptions."
+  },
+  {
+    "term": "Tectonic plate",
+    "meaning": "A large section of the Earth's crust and upper mantle that moves slowly over time."
+  },
+  {
+    "term": "Plate boundary",
+    "meaning": "The place where two tectonic plates meet, where most earthquakes and volcanoes occur."
+  },
+  {
+    "term": "Convergent boundary",
+    "meaning": "A plate boundary where two plates move towards each other; one may subduct beneath the other."
+  },
+  {
+    "term": "Divergent boundary",
+    "meaning": "A plate boundary where two plates move away from each other, allowing magma to rise."
+  },
+  {
+    "term": "Conservative boundary",
+    "meaning": "A plate boundary where two plates slide past each other horizontally, causing earthquakes."
+  },
+  {
+    "term": "Subduction",
+    "meaning": "The process where one tectonic plate is forced under another into the mantle."
+  },
+  {
+    "term": "Focus",
+    "meaning": "The point underground where an earthquake originates."
+  },
+  {
+    "term": "Epicentre",
+    "meaning": "The point on the Earth's surface directly above the focus of an earthquake."
+  },
+  {
+    "term": "Richter scale",
+    "meaning": "A logarithmic scale used to measure the magnitude of earthquakes."
+  },
+  {
+    "term": "Seismometer",
+    "meaning": "An instrument used to detect and record the vibrations caused by earthquakes."
+  },
+  {
+    "term": "Tsunami",
+    "meaning": "A series of large ocean waves triggered by underwater earthquakes or volcanic eruptions."
+  },
+  {
+    "term": "Pyroclastic flow",
+    "meaning": "A fast-moving current of hot gas and volcanic material flowing down a volcano's slopes."
+  },
+  {
+    "term": "Lava",
+    "meaning": "Molten rock that has reached the Earth's surface through a volcanic eruption."
+  },
+  {
+    "term": "Immediate response",
+    "meaning": "Actions taken in the immediate aftermath of a natural disaster, such as search and rescue."
+  },
+  {
+    "term": "Long-term response",
+    "meaning": "Actions taken over months or years after a disaster to rebuild and restore communities."
+  },
+  {
+    "term": "Prediction",
+    "meaning": "Using technology or past data to forecast when and where a natural hazard might occur."
+  },
+  {
+    "term": "Modification",
+    "meaning": "Changing the environment or human behaviour to reduce the impact of a natural hazard."
+  },
+  {
+    "term": "Vulnerability",
+    "meaning": "The degree to which a community is susceptible to harm from a natural hazard."
+  }
+]
